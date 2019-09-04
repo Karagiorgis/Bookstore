@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+</head>
+
+<body>
+
+
+  <div id="app">
+   
+    <div class="img">
+     
+      <div class="container">
+       
+        <div class="header">
+
+          <div class="wrap">
+
+            <div class="title-logo">
+
+              <div><img class="logo" src="images/logo.png" alt="logo"></div>
+              <div><h1>My bookstore</h1></div>
+
+            </div>
+
+            <div class="search-wrapper">
+
+              <div class="bar"><img src="images/search.png" class="search-icon"></div>
+              <div><input type="text" v-model="search" placeholder="Search..." /></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="main-content">
+
+          <div class="flip-book" v-for="(value, key) in filteredList">
+
+            <div class="flip-book-inner">
+
+              <div class="flip-book-front">
+
+                <a class="book" :href="value.cover"><img :src="value.cover" class="book-cover"></a>
+
+              </div>
+
+              <div class="flip-book-back">
+
+                <div class="flipped">
+
+                  <div class="box-wrapper">
+
+                    <div><h2 class="book-title">{{value.title}}</h2></div>
+
+                    <div>
+                      <p class="desc-title">Description</p>
+                      <p class="main-desc">{{value.description}}</p>
+                      <p>Language: {{value.language}}</p>
+                    </div>
+
+                    <div class="btn"><a class="book" data-fancybox="gallery" :href="value.detail">
+                    <p class="more">More info</p></a></div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="main.js"></script>
+
+</body></html>
